@@ -1,3 +1,130 @@
+body {
+  background: #f9f9f9;
+  color: #222;
+  transition: background 0.3s, color 0.3s;
+}
+
 .App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 32px 0;
   text-align: center;
+}
+
+.App-header {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 24px 0 32px 0;
+  letter-spacing: 2px;
+  color: #4f8cff;
+}
+
+.input-section {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.input {
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border 0.2s;
+  background: inherit;
+  color: inherit;
+}
+.input:focus {
+  border-color: #4f8cff;
+}
+
+.add-todo-button {
+  padding: 10px 20px;
+  background: #4f8cff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s;
+}
+.add-todo-button:hover {
+  background: #3566b7;
+}
+
+.list-section {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 24px 16px;
+  transition: background 0.3s;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.delete-button {
+  background: #ff4f4f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s;
+}
+.delete-button:hover {
+  background: #b72f2f;
+}
+
+.checkbox-button {
+  background: transparent;
+  border: 2px solid #4f8cff;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border 0.2s;
+}
+.checkbox-button.checked {
+  background: #4f8cff;
+  border-color: #4f8cff;
+}
+.checkbox-button svg {
+  fill: #fff;
+  width: 16px;
+  height: 16px;
 }

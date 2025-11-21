@@ -1,24 +1,34 @@
-const List = ({ todos, onDelete }) => {
+const List = ({ todos, onDelete, onToggleCompleted }) => {
   return (
-    <>
-      <div>List</div>
-      <ul style={{ paddingLeft: 0 }}>
+    <div className="list-section">
+      <ul>
         {todos.map((item) => (
-          <li
-            key={item.id}
-            style={{ listStyle: "none", marginBottom: "0.5rem" }}
-          >
-            {item.task}
-            <button
-              style={{ marginLeft: "1rem" }}
-              onClick={() => onDelete(item.id)}
+          <li key={item.id}>
+            <span
+              style={{
+                textDecoration: item.completed ? "line-through" : "none",
+              }}
             >
-              Delete
-            </button>
+              {item.task}
+            </span>
+            <div className="buttons">
+              <button
+                className={`checkbox-button ${item.completed ? "checked" : ""}`}
+                onClick={() => onToggleCompleted(item.id)}
+                aria-label="Mark as done"
+              ></button>
+              <button
+                className="delete-button"
+                onClick={() => onDelete(item.id)}
+                aria-label="Delete todo"
+              >
+                Delete
+              </button>
+            </div>
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 
