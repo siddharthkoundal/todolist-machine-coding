@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import EnterInput from "./components/EnterInput.jsx";
+import Header from "./components/Header.jsx";
+import List from "./components/List.jsx";
+import data from "./data.json";
 
 function App() {
+  const [todos, setTodos] = useState(data);
+
+  const handleAddTask = (newTodo) => {
+    const newItem = {
+      id: todos.length + 1,
+      task: newTodo,
+      completed: false,
+    };
+    setTodos([...todos, newItem]);
+  };
+
+  const handleDeleteTask = (id) => {
+    const updatedTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(updatedTodos);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <EnterInput onAdd={handleAddTask} />
+      <List todos={todos} onDelete={handleDeleteTask} />
     </div>
   );
 }
